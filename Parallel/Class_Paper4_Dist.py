@@ -290,9 +290,7 @@ class learners():
                 ### Cross Entropy loss 
                 self.classifier["Cost_M1_Dist"]=tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(
                 logits=self.classifier['Zsclass'], labels=self.classifier['Target'], name='Error_Cost'))
-
                 self.Cost.append(self.classifier["Cost_M1_Dist"]) 
-
                 self.classifier["Total_Z_cost"] = tf.add_n(self.Cost) 
                 # The final cost function
                 self.classifier["Overall_cost_dist"]   = (self.classifier["Cost_M1_Dist"] + self.classifier["Total_Z_cost"]) 
